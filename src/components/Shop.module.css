@@ -100,7 +100,6 @@
     border: 1px solid #ccc;
 }
 
-/* Estilo adicional para o range */
 .filter_item input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
@@ -152,3 +151,7 @@
     --gold-metallic: #D7AC11;
     --mikado-yellow: #FFC800;
 }
+
+.filter_container.dark-mode {
+    background-color: black;
+  }

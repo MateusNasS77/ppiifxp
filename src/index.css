@@ -555,3 +555,56 @@ header {
   text-align: center;
   display: block;
 }
+
+.footer {
+  background-color: var(--timberwolf);
+  color: var(--jet);
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12rem;
+}
+
+.footer_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.footer_logo h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--jet);
+}
+
+.footer_buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer_button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--mikado-yellow);
+  color: var(--jet);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer_button:hover {
+  background-color: var(--gold-metallic);
+  transform: scale(1.05);
+}
+
+.footer_info {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--jet);
+}
