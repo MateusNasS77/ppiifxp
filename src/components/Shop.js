@@ -10,7 +10,11 @@ export default function Shop() {
     const { products, loading, error } = useContext(CartContext);
     const searchInput = useRef("");
     const [filteredItems, setFilteredItems] = useState([]);
-    const [showFilter, setShowFilter] = useState(false); // Estado para controlar a exibição do filtro
+    const [showFilter, setShowFilter] = useState(false);
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
     useEffect(() => {
         if (products) {

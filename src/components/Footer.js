@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
@@ -8,7 +8,9 @@ export default function Footer() {
                     <h3>AutoMania</h3>
                 </div>
                 <div className="footer_buttons">
+                    <Link to="/">
                     <button className="footer_button">Home</button>
+                    </Link>
                     <button className="footer_button">About</button>
                     <button className="footer_button">Contact</button>
                 </div>

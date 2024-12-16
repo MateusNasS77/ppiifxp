@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
+import Home from "./components/Home";
 import Shop from "./components/Shop";
 import Checkout from "./components/Checkout";
 import CartContextProvider from "./context/CartContext";
@@ -10,7 +11,8 @@ function App() {
     <CartContextProvider>
       <Header />
       <Routes>
-        <Route path="/" element={<Shop />}/>
+        <Route path="/" element={<Home />}/>
+        <Route path="/shop" element={<Shop />}/>
         <Route path="/checkout" element={<Checkout />}/>
       </Routes>
       <Footer />

@@ -11,7 +11,7 @@ export default function Checkout() {
             <Cart />
             <div className="product-actions">
                 <button onClick={clearCart}>CLEAN</button>
-                <Link to="/">
+                <Link to="/shop">
                 <button>RETURN</button>
                 </Link>
             </div>
