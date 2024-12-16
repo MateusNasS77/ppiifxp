@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import Cart from "./Cart"
+import { CartContext } from "../context/CartContext";
 
 export default function Checkout() {
+    const { clearCart } = useContext(CartContext);
+
     return (
         <section className="checkout">
-            <h2>Checkout</h2>
             <Cart />
-            <Link to="/" className="product-actions">
+            <div className="product-actions">
+                <button onClick={clearCart}>CLEAN</button>
+                <Link to="/">
                 <button>RETURN</button>
-            </Link>
+                </Link>
+            </div>
+     
         </section>
     );
 }

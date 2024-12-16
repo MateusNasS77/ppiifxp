@@ -5,14 +5,14 @@ const Cart = () => {
   const { items, updateItemQuantity } = useContext(CartContext);
 
   if (items.length === 0) {
-    return <p>Seu carrinho está vazio.</p>;
+    return <p>Your shopping cart is empty.</p>;
   }
 
   const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <div className="cart-container">
-      <h1>Meu Carrinho</h1>
+      <h1>My Shopping cart</h1>
       <div className="cart-items">
         {items.map((item) => (
           <div key={item.id} className="cart-item">
@@ -25,8 +25,8 @@ const Cart = () => {
             </div>
             <div className="cart-item-details">
               <h3>{item.title}</h3>
-              <p><b>Preço: $ {item.price.toFixed(2)}</b></p>
-              <p><b>Quantidade: {item.quantity}</b></p>
+              <p><b>Price: $ {item.price.toFixed(2)}</b></p>
+              <p><b>Quantity: {item.quantity}</b></p>
               <div className="cart-item-controls">
                 <button onClick={() => updateItemQuantity(item.id, 1)}>+</button>
                 <button onClick={() => updateItemQuantity(item.id, -1)}>-</button>
@@ -35,7 +35,7 @@ const Cart = () => {
           </div>
         ))}
       </div>
-      <h2 className="total-price">Total: $ {total.toFixed(2)}</h2>
+      <h2 className="total-price">Total price: $ {total.toFixed(2)}</h2>
     </div>
   );
 };

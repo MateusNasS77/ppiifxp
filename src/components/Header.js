@@ -28,7 +28,8 @@ export default function Header() {
     <>
       <header id="main-header">
         <div id="main-title">
-          <h1>Elegant Shop</h1>
+          <img src="logo.ico" alt="Logo" style={{ width: '50px', height: '50px' }} />
+          <h1>AutoMania</h1>
         </div>
         <p>
           <Link to="/checkout">

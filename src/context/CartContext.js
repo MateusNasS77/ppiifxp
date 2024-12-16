@@ -11,21 +11,35 @@ export const CartContext = createContext({
 
 export default function CartContextProvider({ children }) {
 
-    const [products, setProducts] = useState([]);   
+    const [products, setProducts] = useState([]);
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         async function fetchProducts() {
             setLoading(true);
-            const response = await fetch("https://dummyjson.com/products/category/mens-shoes?limit=12&select=id,thumbnail,title,price,description");
-            if (response.ok) {
-                const result = await response.json();
-                setProducts(result.products);
-            } else {
-                setError("Fetch FAILED!");
+            try {
+                // Fetch veículos
+                const responseVehicle = await fetch("https://dummyjson.com/products/category/vehicle?limit=12&select=id,thumbnail,title,price,description");
+                const responseMotorcycle = await fetch("https://dummyjson.com/products/category/motorcycle?limit=12&select=id,thumbnail,title,price,description");
+
+                if (responseVehicle.ok && responseMotorcycle.ok) {
+                    const vehicleData = await responseVehicle.json();
+                    const motorcycleData = await responseMotorcycle.json();
+
+                    // Combine os produtos das duas categorias
+                    const combinedProducts = [...vehicleData.products, ...motorcycleData.products];
+
+                    setProducts(combinedProducts);
+                } else {
+                    setError("Fetch FAILED for one or more categories!");
+                }
+            } catch (error) {
+                setError("An unexpected error occurred!");
+                console.error(error);
+            } finally {
+                setLoading(false);
             }
-            setLoading(false);
         }
 
         fetchProducts();
@@ -50,7 +64,7 @@ export default function CartContextProvider({ children }) {
                     quantity: existingCartItem.quantity + 1,
                 }
                 updatedItems[existingCartItemIndex] = updatedItem;
-            } else {
+            }  else {
                 const product = action.payload.products.find(
                     (product) => product.id === action.payload.id
                 );
@@ -85,6 +99,9 @@ export default function CartContextProvider({ children }) {
 
             return { ...state, items: updatedItems };
         }
+        if (action.type === "CLEAR_CART") {
+            return { items: [] };
+        }
 
         return state;
     }
@@ -108,13 +125,20 @@ export default function CartContextProvider({ children }) {
         });
     }
 
+    function handleClearCart() {
+        cartDispatch({
+            type: "CLEAR_CART"
+        });
+    }
+
     const ctx = {
         items: cartState.items,
         products: products,
         loading: loading,
         error: error,
         addItemToCart: handleAddItemToCart,
-        updateItemQuantity: handleUpdateCartItemQuantity
+        updateItemQuantity: handleUpdateCartItemQuantity,
+        clearCart: handleClearCart,
     };
 
     return <CartContext.Provider value={ctx}>
