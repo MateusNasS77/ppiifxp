@@ -32,12 +32,14 @@ export default function Filter({ applyFilters }) {
             <div className={styles.filter_item}>
                 <label>Max Price</label>
                 <input
-                    type="number"
+                    type="range"
                     value={maxPrice}
                     onChange={handlePriceChange}
                     max="40000"
                     min="0"
+                    step="1000"  // Define o intervalo de mudança (pode ser ajustado conforme necessário)
                 />
+                <span>{maxPrice}</span> {/* Exibe o valor atual do range */}
             </div>
 
             <button onClick={handleApply} className={styles.filter_apply}>
