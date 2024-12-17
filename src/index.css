@@ -675,7 +675,7 @@ header {
 }
 
 .home-about {
-  background-color: var(--mikado-yellow);
+  background-color: var(--white);
   padding: 30px;
   margin: 20px 0;
   border-radius: 8px;
@@ -691,7 +691,7 @@ header {
 
 .home-about p {
   line-height: 1.6;
-  color: var(--white);
+  color: var(--jet);
 }
 
 .home-shop-button {
@@ -704,8 +704,8 @@ header {
 }
 
 .shop-button {
-  background-color: var(--mikado-yellow);
-  color: #fff;
+  background-color: var(--jet);
+  color: var(--mikado-yellow);
   width: 21rem;
   height: 9rem;
   border: none;
@@ -731,7 +731,7 @@ header {
 
 .contact-button {
   background-color: #333;
-  color: #ffc800;
+  color: var(--mikado-yellow);
   border: none;
   padding: 10px 20px;
   border-radius: 5px;

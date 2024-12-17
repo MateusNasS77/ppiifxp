@@ -42,7 +42,7 @@ const Home = () => {
             <div className="home-shop-button">
                 <p>Ready to find your dream vehicle?</p>
                 <Link to="/shop">
-                    <button className="shop-button">Visit Our Shop</button>
+                    <button className="shop-button"><b>VISIT OUR SHOP</b></button>
                 </Link>
             </div>
 
