@@ -37,9 +37,9 @@ export default function Filter({ applyFilters }) {
                     onChange={handlePriceChange}
                     max="40000"
                     min="0"
-                    step="1000"  // Define o intervalo de mudança (pode ser ajustado conforme necessário)
+                    step="1000"
                 />
-                <span>{maxPrice}</span> {/* Exibe o valor atual do range */}
+                <span>{maxPrice}</span>
             </div>
 
             <button onClick={handleApply} className={styles.filter_apply}>
