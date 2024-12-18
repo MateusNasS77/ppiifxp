@@ -303,6 +303,7 @@ h1 {
 }
 
 .checkout {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
